@@ -1,0 +1,147 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+ 
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/libs/css/style.css">
+    <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header" >
+                <div th:replace="fragments/page_content:: dashboard-header" ></div> 
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark" th:replace="fragments/page_content:: left-sidebar" >
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="row"> 
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="section-block" id="masonary">
+                                    <h3 class="section-title">CVE Vedios </h3>
+                                </div>
+                            </div>
+        
+
+                                   
+                            <div th:if="${#lists.isEmpty(videos)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12  text-center">
+                                    <div class="container">
+                                        <div class="row justify-content-center">
+                                            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-8 ">
+                                                <div class="bg-light">
+                                                    <img src="/assets/images/nothing-found.png" alt="" class="img-fluid">
+                                                    <div class="pb-3">
+                                                        <h4 class="">No vedio found</h4>
+                                                        <a href="/Administration/Videos/Createform" class="btn btn-secondary btn-lg"> Add your first Vedio</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        
+                            <div th:unless="${#lists.isEmpty(videos)}" th:each="video: ${videos}" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                           <iframe class="embed-responsive-item" th:src="${video.vedioLink}"  allowfullscreen></iframe>
+                                        </div>
+                                    </div><!-- card image -->
+        
+                                    <div class="card-body" th:with="videoDescription=${video.description}">
+
+                                        <span class="card-title" th:text="${video.title}"></span>                    
+                                        <p class="card-text" th:if="*{#strings.length(videoDescription)>121}"   th:text="${#strings.substring(videoDescription,0,120)}+' ...'" ></p>
+                                        <p class="card-text" th:if="*{#strings.length(videoDescription)<122}"   th:text="${videoDescription}" ></p>
+                                        <a th:href="@{/Administration/Videos/Updateform/{id}(id=${video.id})}" class="btn btn-primary">Modify</a>
+
+                                    </div><!-- card content -->
+                                </div>             
+                            </div>                  
+                 
+                         <!-- Grid column -->
+                        </div>
+                    </div>   
+                    <!-- ============================================================== -->
+                    <!--  sidebar nav fixed  -->
+                    <!-- ============================================================== -->
+                <!--
+                    <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12">
+                        <div class="sidebar-nav-fixed">
+                            <ul class="list-unstyled">
+                                <li><a href="#overview" class="active">Overview</a></li>
+                                <li><a href="#cards">Cards</a></li>
+                                <li><a href="#image-card">Card Images</a></li>
+                                <li><a href="#headerfooter">Header & Footer</a></li>
+                                <li><a href="#cardaction">Card Action<span class="badge badge-secondary ml-1">Fresh</span></a></li>
+                                <li><a href="#cardfooterlink">Card With Footer Link <span class="badge badge-secondary ml-1">New</span></a></li>
+                                <li><a href="#c-nav">Card Navigation</a></li>
+                                <li><a href="#masonary">Card Masonary</a></li>
+                                <li><a href="#card-list">Card List Group</a></li>
+                                <li><a href="#card-variance">Card Variance</a></li>
+                                <li><a href="#top">Back to Top</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                -->
+                    <!-- ============================================================== -->
+                    <!--  end sidebar nav fixed  -->
+                    <!-- ============================================================== -->
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer" th:replace="fragments/page_content:: footer">
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src='/assets/libs/js/main-js.js'></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <script> 
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+    </script>
+</body>
+ 
+</html>

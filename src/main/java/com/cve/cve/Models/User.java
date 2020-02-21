@@ -14,14 +14,14 @@ public class User {
 
 	@Id
     @GeneratedValue
-    private int Id;
+    private Long id;
 
     private String username;
-    private String Password;
+    private String password;
 
     public User(String username, String encodedPassword) {
         this.username=username;
-        this.Password=encodedPassword;
+        this.password=encodedPassword;
 	}
     
     public User(){

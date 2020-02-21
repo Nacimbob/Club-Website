@@ -8,7 +8,7 @@ import com.cve.cve.Models.User;
  * UserRepository
  */
 @Repository
-public interface UserRepository extends JpaRepository<User,Integer>  {
+public interface UserRepository extends JpaRepository<User,Long>  {
 
     Boolean existsByUsername(String username);
     User findByUsername(String username);

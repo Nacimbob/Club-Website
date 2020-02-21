@@ -1,28 +1,43 @@
 package com.cve.cve.Models;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import lombok.Data;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Guest
  */
-@Data
+@Getter
+@Setter
 @Entity
 public class Guest {
 
     @Id
     @GeneratedValue
-    private int Id;
-    private String FirstName;
-    private String LastName;
-    private String MiddleName;
-    private String Image;
-    private String Description;
-    private boolean Visible;
-    private Date DateAdd;
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private String middleName;
+    private String profile;
+    private String image;
+    private String description;
+    private boolean visible;
+    private Date dateAdd;
     
+ 
+
+    @ManyToMany(fetch=FetchType.EAGER,cascade=CascadeType.PERSIST)
+    @JoinTable(name="event_Guest",joinColumns = @JoinColumn(name="guest_id"),inverseJoinColumns = @JoinColumn(name="event_id"))
+    private Set<Event> events2 =new HashSet<>();
 }

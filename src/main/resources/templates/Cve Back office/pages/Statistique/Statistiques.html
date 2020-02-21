@@ -1,0 +1,362 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+ 
+      <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+        <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/libs/css/style.css">
+        <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+        <link rel="stylesheet" href="/assets/vendor/charts/chartist-bundle/chartist.css">
+        <link rel="stylesheet" href="/assets/vendor/charts/morris-bundle/morris.css">
+        <link rel="stylesheet" href="/assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+        <link rel="stylesheet" href="/assets/vendor/charts/c3charts/c3.css">
+        <link rel="stylesheet" href="/assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+        <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+    </head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header" >
+                <div th:replace="fragments/page_content:: dashboard-header" ></div> 
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark" th:replace="fragments/page_content:: left-sidebar" >
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <!-- ============================================================== -->
+                        <!-- pageheader  -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- end pageheader  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- overview  -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- end overview  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- simple cards  -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- end simple cards  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- image cards  -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- end image cards  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- card header footer  -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- end card header footer  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- card footer link  -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- end card footer link  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- card navigaion  -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- end card navigaion  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- card masonary  -->
+                        <!-- ============================================================== -->
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="section-block" id="masonary">
+                                    <h3 class="section-title">Statistiques </h3>
+                                </div>
+                            </div>
+                                            <!-- ============================================================== -->
+                                            <!-- sales  -->
+                                            <!-- ============================================================== -->
+                                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                                <div class="card border-3 border-top border-top-primary">
+                                                    <div class="card-body">
+                                                        <h5 class="text-muted">Events</h5>
+                                                        <div class="metric-value d-inline-block">
+                                                            <h1 class="mb-1" th:text="*{Events}"></h1>
+                                                        </div>
+                                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5.86%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ============================================================== -->
+                                            <!-- end sales  -->
+                                            <!-- ============================================================== -->
+                                            <!-- ============================================================== -->
+                                            <!-- new customer  -->
+                                            <!-- ============================================================== -->
+                                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                                <div class="card border-3 border-top border-top-primary">
+                                                    <div class="card-body">
+                                                        <h5 class="text-muted">Vedios</h5>
+                                                        <div class="metric-value d-inline-block">
+                                                            <h1 class="mb-1" th:text="*{Vedios}"></h1>
+                                                        </div>
+                                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">10%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ============================================================== -->
+                                            <!-- end new customer  -->
+                                            <!-- ============================================================== -->
+                                            <!-- ============================================================== -->
+                                            <!-- visitor  -->
+                                            <!-- ============================================================== -->
+                                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                                <div class="card border-3 border-top border-top-primary">
+                                                    <div class="card-body">
+                                                        <h5 class="text-muted">Guests</h5>
+                                                        <div class="metric-value d-inline-block">
+                                                            <h1 class="mb-1" th:text="*{Guests}"></h1>
+                                                        </div>
+                                                        <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                                            <span class="icon-circle-small icon-box-xs text-success bg-success-light"><i class="fa fa-fw fa-arrow-up"></i></span><span class="ml-1">5%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ============================================================== -->
+                                            <!-- end visitor  -->
+                                            <!-- ============================================================== -->
+                                            <!-- ============================================================== -->
+                                            <!-- total orders  -->
+                                            <!-- ============================================================== -->
+                                        
+                                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                                                <div class="card border-3 border-top border-top-primary">
+                                                    <div class="card-body">
+                                                        <h5 class="text-muted">Collaborators</h5>
+                                                        <div class="metric-value d-inline-block">
+                                                            <h1 class="mb-1" th:text="*{Collaborators}"></h1>
+                                                        </div>
+                                                        <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
+                                                            <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light "><i class="fa fa-fw fa-arrow-down"></i></span><span class="ml-1">4%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ============================================================== -->
+                                            <!-- end total orders  -->
+                                            <!-- ============================================================== -->
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="section-block" id="masonary">
+                                                        <h3 class="section-title">Collaborators and Events : </h3>
+                                                    </div>
+                                                </div> 
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                                    <div class="card border-3 border-top border-top-primary">
+                                                            <canvas id="myChart"></canvas>
+                                                    </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                                    <div class="card border-3 border-top border-top-primary">
+                                                            <canvas id="myChart2"></canvas>
+                                                    </div>
+                                            </div>
+
+                                            
+                            
+                        </div>
+
+                        <!-- ============================================================== -->
+                        <!-- end card masonary  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- card list group  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end card list group  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- card varience  -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- end card varience  -->
+                        <!-- ============================================================== -->
+                    </div>
+                    <!-- ============================================================== -->
+                    <!--  sidebar nav fixed  -->
+                    <!-- ============================================================== -->
+
+                    <!--
+                    <div class="col-xl-2 col-lg-2 col-md-6 col-sm-12 col-12">
+                        <div class="sidebar-nav-fixed">
+                            <ul class="list-unstyled">
+                                <li><a href="#overview" class="active">Overview</a></li>
+                                <li><a href="#cards">Cards</a></li>
+                                <li><a href="#image-card">Card Images</a></li>
+                                <li><a href="#headerfooter">Header & Footer</a></li>
+                                <li><a href="#cardaction">Card Action<span class="badge badge-secondary ml-1">Fresh</span></a></li>
+                                <li><a href="#cardfooterlink">Card With Footer Link <span class="badge badge-secondary ml-1">New</span></a></li>
+                                <li><a href="#c-nav">Card Navigation</a></li>
+                                <li><a href="#masonary">Card Masonary</a></li>
+                                <li><a href="#card-list">Card List Group</a></li>
+                                <li><a href="#card-variance">Card Variance</a></li>
+                                <li><a href="#top">Back to Top</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    -->
+                    
+                    <!-- ============================================================== -->
+                    <!--  end sidebar nav fixed  -->
+                    <!-- ============================================================== -->
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer" th:replace="fragments/page_content:: footer">
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src='/assets/libs/js/main-js.js'></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    <script> 
+        const observer = lozad();
+    setTimeout(observer.observe(),10000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script th:inline="javascript"> 
+       var Activities = [[${Activity}]];
+       var Projects = [[${Project}]];
+     var ctx = document.getElementById('myChart').getContext('2d');
+     var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data:  {
+    datasets: [{
+        data: [Activities, Projects],
+        backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 206, 86, 1)',
+
+            ]
+    }
+    
+    ],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+        'Activities',
+        'Projects',
+    ]
+   },
+      options: {}
+    });
+    
+
+        const observer = lozad();
+    setTimeout(observer.observe(),10000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script th:inline="javascript"> 
+       var Activities = [[${Activity}]];
+       var Projects = [[${Project}]];
+     var ctx = document.getElementById('myChart').getContext('2d');
+     var eventsPieChart = new Chart(ctx, {
+      type: 'pie',
+      data:  {
+    datasets: [{
+        data: [Activities, Projects],
+        backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 206, 86, 1)',
+
+            ]
+    }
+    
+    ],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+        'Activities',
+        'Projects',
+    ]
+   },
+      options: {}
+    });
+    
+       var Sponsors = [[${Sponsor}]];
+       var Partners = [[${Partner}]];
+     var pie = document.getElementById('myChart2').getContext('2d');
+     var CollaboratorsPieChart = new Chart(pie, {
+      type: 'pie',
+      data:  {
+    datasets: [{
+        data: [Sponsors, Partners],
+        backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 206, 86, 1)',
+            ]
+    }
+    
+    ],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+        'Sponsors',
+        'Partners',
+    ]
+   },
+      options: {}
+    });
+    </script>
+</body>
+ 
+</html>

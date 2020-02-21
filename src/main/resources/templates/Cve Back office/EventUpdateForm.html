@@ -1,0 +1,301 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+ 
+      <head>
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <title>Form Validation</title>
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+            <link href="/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+            <link rel="stylesheet" href="/assets/libs/css/style.css">
+            <link rel="stylesheet" href="/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+            
+            <link rel="stylesheet" href="/assets/vendor/datepicker/tempusdominus-bootstrap-4.css" />
+            <link rel="stylesheet" href="/assets/vendor/multi-select/css/multi-select.css">
+            <link rel="stylesheet" href="/assets/libs/css/imageuploadify.min.css">
+        </head>
+        
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header" >
+                <div th:replace="fragments/page_content:: dashboard-header" ></div> 
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark" th:replace="fragments/page_content:: left-sidebar" >
+        </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                    <div class="row">
+                            <!-- ============================================================== -->
+                            <!-- valifation types -->
+                            <!-- ============================================================== -->
+                        <!-- 
+                            private Date eventDate;
+                            private Date dateAdd; 
+                        -->
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="card">
+                                    <h5 class="card-header">Update Event</h5>
+                                    <div class="card-body">
+                                            <form   th:action="@{/Administration/Events/Update/{id}(id=${event.id})}"  th:object="${event}" method="post" enctype='multipart/form-data' id="validationform" data-parsley-validate="" novalidate="">
+                                                <input type="text" th:field="*{id}" required="" hidden>
+                                                <input type="text" th:field="*{eventLogo}" required="" hidden>
+                                                <input type="text" th:field="*{planningImageLink}" required="" hidden>
+                                                
+                                                <div class="form-group row">
+                                                    <label class="col-12 col-sm-3 col-form-label text-sm-right">Event Name</label>
+                                                    <div class="col-12 col-sm-8 col-lg-6">
+                                                        <input type="text" th:field="*{eventName}" required="" placeholder="Type something" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                        <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
+                                                        <div class="col-12 col-sm-8 col-lg-6">
+                                                            <textarea th:field="*{description}" required="" class="form-control"></textarea>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                        <label class="col-12 col-sm-3 col-form-label text-sm-right">Duration</label>
+                                                        <div class="col-12 col-sm-8 col-lg-6">
+                                                            <input th:field="*{duration}" required="" type="number" min="1" max="10" placeholder="Number between 1 - 10" class="form-control">
+                                                        </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                        <label class="col-12 col-sm-3 col-form-label text-sm-right" for="exampleFormControlFile1">Event Logo</label>
+                                                        <div class="col-12 col-sm-8 col-lg-6">
+                                                            <input type="file" name="logoEvent"  th:attr="data-image=${'/assets/images/'+event.getEventLogo()}" class="form-control-file" id="image1" accept="image/*" multiple>
+                                                        </div>
+                                                        
+                                                 </div>
+                                                 <div class="form-group row">
+                                                        <label class="col-12 col-sm-3 col-form-label text-sm-right" for="exampleFormControlFile2">planning Image</label>
+                                                        <div class="col-12 col-sm-8 col-lg-6">
+                                                            <input type="file" name="imageplanning" th:attr="data-image=${'/assets/images/'+event.getPlanningImageLink()}"  class="form-control-file" id="image2" accept="image/*" multiple>
+                                                        </div>
+                                                        
+                                                 </div>
+                                             <div class="form-group row">
+                                                    <label class="col-12 col-sm-3 col-form-label text-sm-right">Adress</label>
+                                                    <div class="col-12 col-sm-8 col-lg-6">
+                                                        <input th:field="*{adress}" data-parsley-type="alphanum" type="text" required="" placeholder="Enter alphanumeric value" class="form-control">
+                                                   </div>
+                                            </div>
+                                             <div class="form-group row">
+                                                    <label class="col-12 col-sm-3 col-form-label text-sm-right">Inscription Link</label>
+                                                    <div class="col-12 col-sm-8 col-lg-6">
+                                                        <input th:field="*{inscriptionLink}" data-parsley-type="url" type="url" required="" placeholder="URL" class="form-control">
+                                                    </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                    <label class="col-12 col-sm-3 col-form-label text-sm-right">Adress Google Maps</label>
+                                                    <div class="col-12 col-sm-8 col-lg-6">
+                                                        <input th:field="*{adressGoogleMaps}" data-parsley-type="url" type="url" required="" placeholder="URL" class="form-control">
+                                                    </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                    <label class="col-12 col-sm-3 col-form-label text-sm-right">Event date </label>
+                                                    <div class="col-12 col-sm-8 col-lg-6">
+                                                        <input th:field="*{eventDate}" name="eventDate" type="date" required="" class="form-control">
+                                                    </div>
+                                            </div>
+            
+
+                                            <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label text-sm-right">Event Type</label>
+                                                    <div class="col-sm-6">
+                                                        <div class="custom-controls-stacked">
+                                                            <label class="custom-control custom-radio custom-control-inline">
+                                                                <input type="radio" name="eventType"  th:checked="${event.eventType.name()=='Activity'}" value="Activity" checked="" class="custom-control-input"><span class="custom-control-label">Activity</span>
+                                                            </label>
+                                                            <label class="custom-control custom-radio custom-control-inline">
+                                                                <input type="radio" name="eventType" th:checked="${event.eventType.name()=='Project'}" value="Project" class="custom-control-input"><span class="custom-control-label">Project</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>    
+                                                    
+                                            </div>
+
+                                            <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label text-sm-right">Visible</label>
+                                                    <div class="col-sm-6">
+                                                        <div class="custom-controls-stacked">
+                                                            <label class="custom-control custom-radio custom-control-inline">
+                                                                <input type="radio" name="visible"  value="true" th:checked="${#strings.equals(event.visible,'true')}" class="custom-control-input"><span class="custom-control-label">True</span>
+                                                            </label>
+                                                            <label class="custom-control custom-radio custom-control-inline">
+                                                                <input type="radio" name="visible"  value="false" th:checked="${#strings.equals(event.visible,'false')}" class="custom-control-input"><span class="custom-control-label">False</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label text-sm-right">Inscription</label>
+                                                    <div class="col-sm-6">
+                                                        <div class="custom-controls-stacked">
+                                                            <label class="custom-control custom-radio custom-control-inline">
+                                                                <input type="radio" name="inscription"   value="true" th:checked="${#strings.equals(event.inscription,'true')}"  class="custom-control-input"><span class="custom-control-label">True</span>
+                                                            </label>
+                                                            <label class="custom-control custom-radio custom-control-inline">
+                                                                <input type="radio" name="inscription"  value="false" th:checked="${#strings.equals(event.inscription ,'false')}" class="custom-control-input"><span class="custom-control-label">False</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                            </div>
+
+
+
+                                            <div class="row">
+                                                <!-- ============================================================== -->
+                                                <!-- boxed multiselect  -->
+                                                <!-- ============================================================== -->
+                                             
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                <div class="card">
+                                                    <h5 class="card-header">Collaborators </h5>
+                                                    <div class="card-body">
+                                                        <select name="colla" id='pre-selected-options' multiple='multiple'>
+                                                            <optgroup label='Partners'>
+                                                                <option th:each="collaborator:${event.collaborators}" th:if="${collaborator.collaboratorType.name() == 'Partner'}" selected th:value="${collaborator.id}" th:text="${collaborator.name}"></option>
+                                                                <option th:each="collaborator2:${collaborators}" th:if="${collaborator2.collaboratorType.name() == 'Partner'}"  th:value="${collaborator2.id}" th:text="${collaborator2.name}"></option>
+                                                            </optgroup>
+                                                            <optgroup label='Sponsors'>
+                                                                <option th:each="collaborator:${event.collaborators}" th:if="${collaborator.collaboratorType.name() == 'Sponsor'}" selected th:value="${collaborator.id}" th:text="${collaborator.name}"></option>
+                                                                <option th:each="collaborator:${collaborators}" th:if="${collaborator.collaboratorType.name() == 'Sponsor'}"  th:value="${collaborator.id}" th:text="${collaborator.name}"></option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                <div class="card">
+                                                    <h5 class="card-header">Guests</h5>
+                                                    <div class="card-body">
+                                                        <select multiple="multiple" id="my-select" name="guests">
+                                                            <option th:each="guest: ${guests}"  th:text="${guest.firstName +' '+ guest.middleName +' '+ guest.lastName}" th:value="${guest.id}"></option>
+                                                            <option th:each="guest: ${event.guests}" th:text="${guest.firstName +' '+ guest.middleName +' '+ guest.lastName}" selected th:value="${guest.id}"></option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <!-- ============================================================== -->
+                                                <!-- end pre multiselectd options  -->
+                                                <!-- ============================================================== -->
+                                                <!-- ============================================================== -->
+                                                <!-- callbacks multiselectd  -->
+                                                <!-- ============================================================== -->
+
+                                                <!-- ============================================================== -->
+                                                <!-- end callbacks multiselectd  -->
+                                                <!-- ============================================================== -->
+                                            </div>
+
+
+
+                                            <div class="form-group row text-right">
+                                                <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                                                    <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                                                    <button class="btn btn-space btn-secondary">Cancel</button>
+                                                </div>
+                                            </div>
+                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ============================================================== -->
+                            <!-- end valifation types -->
+                            <!-- ============================================================== -->
+                        </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <div class="footer" th:replace="fragments/page_content:: footer">
+            </div>
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+ <!-- Optional JavaScript -->
+ <script src="/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+ <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+ <script src="/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+ <script type="text/javascript" src="/assets/libs/js/imageuploadify.min.js"></script>
+ <script type="text/javascript">
+     $(document).ready(function() {
+         $('#image1').imageuploadify();
+         $('#image2').imageuploadify();
+     })
+ </script>
+ 
+ <script src="/assets/vendor/parsley/parsley.js"></script>
+ <script src="/assets/vendor/multi-select/js/jquery.multi-select.js"></script>
+ <script src="/assets/libs/js/main-js.js"></script>
+ 
+ <script>
+ $('#my-select, #pre-selected-options').multiSelect()
+ </script>
+
+ <script>
+ $('#form').parsley();
+ </script>
+ <script>
+ // Example starter JavaScript for disabling form submissions if there are invalid fields
+ (function() {
+     'use strict';
+     window.addEventListener('load', function() {
+         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+         var forms = document.getElementsByClassName('needs-validation');
+         // Loop over them and prevent submission
+         var validation = Array.prototype.filter.call(forms, function(form) {
+             form.addEventListener('submit', function(event) {
+                 if (form.checkValidity() === false) {
+                     event.preventDefault();
+                     event.stopPropagation();
+                 }
+                 form.classList.add('was-validated');
+             }, false);
+         });
+     }, false);
+ })();
+ </script>
+ <script>
+    $("#eventDate").hover(function(params) {
+        console.log("HTML: " + $("#eventDate").html()); 
+    }) ;
+  </script> 
+
+     <script src="/assets/vendor/datepicker/moment.js"></script>
+     <script src="/assets/vendor/datepicker/tempusdominus-bootstrap-4.js"></script>
+     <script src="/assets/vendor/datepicker/datepicker.js"></script>
+</body>
+ 
+</html>
