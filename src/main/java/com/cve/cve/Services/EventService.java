@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
-import com.cve.cve.Enumeration.CollaboratorType;
 import com.cve.cve.Enumeration.EventType;
 import com.cve.cve.Models.Event;
 import com.cve.cve.Repositories.EventRepository;

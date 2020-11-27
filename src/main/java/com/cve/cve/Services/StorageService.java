@@ -15,7 +15,7 @@ import java.util.Date;
 public class StorageService {
 
 
-    private String path=System.getProperty("user.dir")+"/src/main/resources/static/assets/images/";
+    private String path=System.getProperty("user.dir")+"\\";
 
     public String uploadFile(MultipartFile file,Long long1) {
   
@@ -27,6 +27,7 @@ public class StorageService {
         while(new File(path+newFile).exists());
 
         try {
+             System.out.println(path+newFile);
 
             Files.copy(file.getInputStream(), Paths.get(path +newFile),
                     StandardCopyOption.REPLACE_EXISTING);

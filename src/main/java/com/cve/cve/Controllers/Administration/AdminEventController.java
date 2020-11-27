@@ -108,10 +108,12 @@ public class AdminEventController {
         getEventGuests(guests, event);
         getEventCollaborators(colla,event);
         getEventGuests(guests, event);
-        System.out.println(event.getCollaborators());
+      System.out.println(event.getId());  
         event.setEventLogo(storageService.uploadFile(logoEvent,event.getId()));
         event.setPlanningImageLink(storageService.uploadFile(imageplanning,event.getId()));
         eventService.save(event);
+      System.out.println(event.getEventLogo());  
+
         model.addAttribute("events",eventService.findAll());
         return "redirect:/Administration/Events";
     }

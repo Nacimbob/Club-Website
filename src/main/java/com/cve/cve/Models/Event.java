@@ -82,7 +82,6 @@ public class Event {
         Guest setItem = (Guest) setIterator.next();
              setItem.getEvents2().remove(this);
              setIterator.remove();
-             System.out.println(setItem + " removed");
          }
    
     }
@@ -94,6 +93,4 @@ public class Event {
         this.Guests.add(guest);
         guest.getEvents2().add(this);
     }
-
 }
-
