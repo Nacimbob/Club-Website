@@ -22,7 +22,9 @@ Web site for cve club build with spring-boot and has two two parts
 # How to access admin view?
  
  go to http://localhost:8080/login 
+ 
  user name : user
+ 
  password : password
  
  
