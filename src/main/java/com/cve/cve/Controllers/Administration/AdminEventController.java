@@ -48,7 +48,7 @@ public class AdminEventController {
       
         model.addAttribute("events",eventService.findAll());
 
-        return "Cve Back office/cards";
+        return "Cve Back office/AllEvents";
     }
 
 

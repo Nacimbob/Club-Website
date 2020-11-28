@@ -102,15 +102,15 @@
                                 <div class="section-block" id="masonary">
                                     <h3 class="section-title">CVE Events </h3>                                </div>
                             </div>
-                            <div th:if="${#lists.isEmpty(events)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12  text-center">
+                            <div th:if="${#lists.isEmpty(guests)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12  text-center">
                                 <div class="container">
                                     <div class="row justify-content-center">
-                                        <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-8 ">
+                                        <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-8 ">
                                             <div class="bg-light">
                                                 <img src="/assets/images/nothing-found.png" alt="" class="img-fluid">
                                                 <div class="pb-3">
                                                     <h4 class="">No Event found</h4>
-                                                    <a href="/Administration/Events/Createform" class="btn btn-secondary btn-lg"> Add your first Event</a>
+                                                    <a href="/Administration/Guests/Createform" class="btn btn-secondary btn-lg"> Add your first Guest</a>
                                                 </div>
                                             </div>
                                         </div>

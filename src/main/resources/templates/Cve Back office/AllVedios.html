@@ -54,20 +54,20 @@
         
 
                                    
-                            <div th:if="${#lists.isEmpty(videos)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12  text-center">
-                                    <div class="container">
-                                        <div class="row justify-content-center">
-                                            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-8 col-8 ">
-                                                <div class="bg-light">
-                                                    <img src="/assets/images/nothing-found.png" alt="" class="img-fluid">
-                                                    <div class="pb-3">
-                                                        <h4 class="">No vedio found</h4>
-                                                        <a href="/Administration/Videos/Createform" class="btn btn-secondary btn-lg"> Add your first Vedio</a>
-                                                    </div>
+                            <div th:if="${#lists.isEmpty(guests)}" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12  text-center">
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-xl-5 col-lg-5 col-md-8 col-sm-8 col-8 ">
+                                            <div class="bg-light">
+                                                <img src="/assets/images/nothing-found.png" alt="" class="img-fluid">
+                                                <div class="pb-3">
+                                                    <h4 class="">No Vedio found</h4>
+                                                    <a href="/Administration/Guests/Createform" class="btn btn-secondary btn-lg"> Add your first Guest</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                             </div>
                         
                             <div th:unless="${#lists.isEmpty(videos)}" th:each="video: ${videos}" class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

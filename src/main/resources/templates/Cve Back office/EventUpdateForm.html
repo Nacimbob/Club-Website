@@ -85,14 +85,14 @@
                                                 <div class="form-group row">
                                                         <label class="col-12 col-sm-3 col-form-label text-sm-right" for="exampleFormControlFile1">Event Logo</label>
                                                         <div class="col-12 col-sm-8 col-lg-6">
-                                                            <input type="file" name="logoEvent"  th:attr="data-image=${'/assets/images/'+event.getEventLogo()}" class="form-control-file" id="image1" accept="image/*" multiple>
+                                                            <input type="file" name="logoEvent"  th:attr="data-image=${'/images/'+event.getEventLogo()}" class="form-control-file" id="image1" accept="image/*" multiple>
                                                         </div>
                                                         
                                                  </div>
                                                  <div class="form-group row">
                                                         <label class="col-12 col-sm-3 col-form-label text-sm-right" for="exampleFormControlFile2">planning Image</label>
                                                         <div class="col-12 col-sm-8 col-lg-6">
-                                                            <input type="file" name="imageplanning" th:attr="data-image=${'/assets/images/'+event.getPlanningImageLink()}"  class="form-control-file" id="image2" accept="image/*" multiple>
+                                                            <input type="file" name="imageplanning" th:attr="data-image=${'/images/'+event.getPlanningImageLink()}"  class="form-control-file" id="image2" accept="image/*" multiple>
                                                         </div>
                                                         
                                                  </div>
